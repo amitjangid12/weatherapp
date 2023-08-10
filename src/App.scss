@@ -1,0 +1,94 @@
+.App {
+  text-align: center;
+  background-image: url('../public/safari-tour-realistic-illustration_52683-78209.avif');
+  background-size: cover;
+  // #12123f;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.weather-wrap {
+  width: 25%;
+  background-color: #1a1a35d5;
+  padding: 40px;
+  border-radius: 20px;
+  margin: 0 auto;
+  color: white;
+}
+
+.weather-details {
+  background-color: #16362f;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.other-weather-details {
+  display: flex;
+
+}
+
+.weather-mood {
+  font-size: 60px;
+}
+
+.temp-date-time{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+}
+
+.temperature {
+  font-size: 35px;
+
+}
+.mood {
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.temp-mood {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  width: 75%;
+
+}
+
+.date-time {
+  display: inline-block;
+  width: 20%;
+}
+
+.detils-icon {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #ffffff1e;
+  border-top: 1px solid #ffffff1e;
+  border-bottom: 1px solid #ffffff1e;
+  padding: 0 10px;
+}
+
+.detils-icon:last-child {
+  // border-right: none;
+  padding: 0 0px 0 10px;
+
+}
+
+.detils-icon:first-child {
+  padding: 0 10px 0 0;
+  border-left: 1px solid #ffffff1e;
+}
+
+.weather-icon {
+  font-size: 25px;
+  display: inline;
+}
+
+.weather-icon-details {
+  font-size: 16px;
+  display: inline;
+  
+}
