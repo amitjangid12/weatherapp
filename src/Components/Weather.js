@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react'
 function Weather() {
 
     const [searchValue, setSearchValue] = useState('JAIPUR')
-    const [width, setWidth] = useState(window.innerWidth)
+    const [width, setWidth] = useState(window.screen.width)
     const [tempInfo, setTempInfo] = useState({})
     const [weatherMood, setWeatherMood] = useState(<WiSunset />)
     const { temp, humidity, pressure, speed, main, sunset, country, city } = tempInfo
@@ -80,9 +80,9 @@ function Weather() {
     return (
         <>
             <div className='weather-wrap'>
-                <h2 style={{ margin: '0 0 5px 0' }}>Screen Width: {width}</h2>
+                <h2 className='screen-width' >Screen Width: {width}</h2>
                 <div>
-                    <Input autoFocus type='search' style={{ width: '80%', background: '#0b02023d', color: 'white', marginBottom: '10px' }} value={searchValue} onChange={(e) => setSearchValue(e.target.value.toUpperCase())} /><Button onClick={() => getWeather()} >Search</Button>
+                    <Input autoFocus className='input-search' type='search' value={searchValue} onChange={(e) => setSearchValue(e.target.value.toUpperCase())} /><Button onClick={() => getWeather()} >Search</Button>
                 </div>
                 <div className='weather-details'>
                     <div className='weather-mood' >
@@ -90,8 +90,8 @@ function Weather() {
                     </div>
                     <div className='temp-date-time'>
 
-                        <div className='temp-mood'><p className='temperature'>{temperature ? temperature.replace('.00', '') : temperature}&#8451;</p>
-                            <div className='mood'>{main}<p style={{ fontSize: '16px' }}>{city + ", " + country}</p></div></div>
+                        <div className='temp-mood'><p className='temperature'>{temperature ? temperature.replace('.00', '') : temperature}&#8451;</p></div>
+                            <div className='mood'>{main}<p className='city-place' >{city + ", " + country}</p></div>
                         <div className='date-time'><span>{dates} </span>
                             <span> {timeToday}</span></div>
                     </div>

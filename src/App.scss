@@ -2,21 +2,28 @@
   text-align: center;
   background-image: url('../public/safari-tour-realistic-illustration_52683-78209.avif');
   background-size: cover;
-  // #12123f;
   min-height: 100vh;
   display: flex;
+  width: 100vw;
   align-items: center;
   justify-content: center;
 
 }
 
 .weather-wrap {
-  width: 25%;
+  width: 400px;
   background-color: #1a1a35d5;
-  padding: 40px;
   border-radius: 20px;
   margin: 0 auto;
   color: white;
+  padding: 40px;
+}
+
+.input-search {
+  width: 80%;
+  background: #0b02023d;
+  color: white;
+  margin-bottom: 10px
 }
 
 .weather-details {
@@ -25,8 +32,13 @@
   border-radius: 10px;
 }
 
+.screen-width {
+  margin: 0 0 10px 0;
+}
+
 .other-weather-details {
   display: flex;
+  width: 100%;
 
 }
 
@@ -34,9 +46,10 @@
   font-size: 60px;
 }
 
-.temp-date-time{
-  display: flex;
+.temp-date-time {
   align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   width: 100%;
   background-color: black;
 }
@@ -45,6 +58,11 @@
   font-size: 35px;
 
 }
+
+.city-place {
+  font-size: 16px;
+}
+
 .mood {
   font-size: 25px;
   margin-top: 20px;
@@ -52,14 +70,13 @@
 
 .temp-mood {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   width: 75%;
 
 }
 
 .date-time {
-  display: inline-block;
-  width: 20%;
+  display: grid;
 }
 
 .detils-icon {
@@ -69,10 +86,10 @@
   border-top: 1px solid #ffffff1e;
   border-bottom: 1px solid #ffffff1e;
   padding: 0 10px;
+  width: 25%;
 }
 
 .detils-icon:last-child {
-  // border-right: none;
   padding: 0 0px 0 10px;
 
 }
@@ -90,5 +107,37 @@
 .weather-icon-details {
   font-size: 16px;
   display: inline;
-  
+
+}
+
+@media screen and (min-width: 485px) {
+
+  .weather-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      width: 400px;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .weather-wrap {
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 350px;
+      padding: 40px;
+
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .weather-wrap {
+  }
+}
+
+@media screen and (min-width: 1360px) {
+  .weather-wrap {
+  }
 }
