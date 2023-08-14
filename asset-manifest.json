@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/weatherapp/static/css/main.491de849.css",
+    "main.css": "/weatherapp/static/css/main.ab14eeb0.css",
     "main.js": "/weatherapp/static/js/main.26daf920.js",
     "static/media/safari-tour-realistic-illustration_52683-78209.avif": "/weatherapp/static/media/safari-tour-realistic-illustration_52683-78209.ab1a246905d67402d19e.avif",
     "index.html": "/weatherapp/index.html",
-    "main.491de849.css.map": "/weatherapp/static/css/main.491de849.css.map",
+    "main.ab14eeb0.css.map": "/weatherapp/static/css/main.ab14eeb0.css.map",
     "main.26daf920.js.map": "/weatherapp/static/js/main.26daf920.js.map"
   },
   "entrypoints": [
-    "static/css/main.491de849.css",
+    "static/css/main.ab14eeb0.css",
     "static/js/main.26daf920.js"
   ]
 }
