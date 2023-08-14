@@ -9,6 +9,7 @@ function Weather() {
 
     const [searchValue, setSearchValue] = useState('JAIPUR')
     const [width, setWidth] = useState(window.screen.width)
+    const [height, setHeight] = useState(window.screen.height)
     const [tempInfo, setTempInfo] = useState({})
     const [weatherMood, setWeatherMood] = useState(<WiSunset />)
     const { temp, humidity, pressure, speed, main, sunset, country, city } = tempInfo
@@ -36,18 +37,27 @@ function Weather() {
         setTempInfo(weatherInfo)
     }
 
-    useEffect(() => {
+    const screenWidth = () => {
+        setWidth(() => window.innerWidth)
+    }
 
-        window.addEventListener('resize', setWidth(() => window.innerWidth))
+    const screenHeight = () => {
+        setHeight(() => window.innerHeight)
+    }
+
+    useEffect(() => {
+        console.log('use');
+        window.addEventListener('resize', screenHeight)
+        window.addEventListener('resize', screenWidth)
         return () => {
-            window.removeEventListener('resize', setWidth(() => window.innerWidth))
+            window.removeEventListener('resize', screenHeight)
+            window.removeEventListener('resize', screenWidth)
         }
-    }, [width])
+    }, [width,height])
 
     useEffect(() => {
         getWeather()
         if (main) {
-            console.log('if');
             switch (main) {
                 case 'Clouds':
                     setWeatherMood(<TiWeatherCloudy />);
@@ -81,8 +91,10 @@ function Weather() {
         <>
             <div className='weather-wrap'>
                 <h2 className='screen-width' >Screen Width: {width}</h2>
+                <h2 className='screen-width' >Screen height: {height}</h2>
+
                 <div>
-                    <Input autoFocus className='input-search' type='search' value={searchValue} onChange={(e) => setSearchValue(e.target.value.toUpperCase())} /><Button onClick={() => getWeather()} >Search</Button>
+                    <Input autoFocus className='input-search' type='search' value={searchValue} onChange={(e) => setSearchValue(e.target.value.toUpperCase().trim())} /><Button onClick={() => getWeather()} >Search</Button>
                 </div>
                 <div className='weather-details'>
                     <div className='weather-mood' >
@@ -91,7 +103,7 @@ function Weather() {
                     <div className='temp-date-time'>
 
                         <div className='temp-mood'><p className='temperature'>{temperature ? temperature.replace('.00', '') : temperature}&#8451;</p></div>
-                            <div className='mood'>{main}<p className='city-place' >{city + ", " + country}</p></div>
+                        <div className='mood'>{main}<p className='city-place' >{city + ", " + country}</p></div>
                         <div className='date-time'><span>{dates} </span>
                             <span> {timeToday}</span></div>
                     </div>
@@ -117,7 +129,7 @@ function Weather() {
                             <p className='weather-icon'>
                                 <span><TiWeatherDownpour /> </span>
                             </p><p className='weather-icon-details'>
-                                <span>{pressure}mbar </span>
+                                <span>{pressure} </span>
                                 <span>pressure</span>
                             </p>
                         </div>
